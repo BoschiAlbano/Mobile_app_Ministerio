@@ -1,7 +1,7 @@
 import {IonButton, IonCard, IonCardContent, IonContent, IonHeader, IonIcon, IonInput, IonItem, IonLabel, IonPage, IonTitle, IonToolbar, useIonAlert, useIonLoading } from "@ionic/react";
 import { useHistory } from "react-router-dom";
 import React, { useState } from "react";
-import { person } from 'ionicons/icons'
+import { person, personAdd } from 'ionicons/icons'
 
 const login: React.FC = function Login() {
     
@@ -95,6 +95,12 @@ const login: React.FC = function Login() {
                                     Login
                                 </IonButton>
                             </div>
+                            <div className="ion-margin-top">
+                                <IonButton expand="full" type="button" color="warning" onClick={() => {History.push("/register")}}>
+                                    <IonIcon icon={personAdd} slot="start"></IonIcon>
+                                    Register
+                                </IonButton>
+                            </div>
                         </form>
                     </IonCardContent>
                 </IonCard>
@@ -107,6 +113,6 @@ export default login
 
 /*  Servidor
     Aumentar tiempo de expiracion de token
-    Corregir las respuestas del servidor, con un error y mensaje
+    Corregir las respuestas del servidor, con un error y mensaje - estado
     login responder ademas con todos los datos del usuario
 */

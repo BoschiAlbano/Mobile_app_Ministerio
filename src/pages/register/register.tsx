@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import {IonButton, IonCard, IonCardContent, IonContent, IonHeader, IonIcon, IonInput, IonItem, IonLabel, IonPage, IonTitle, IonToolbar, useIonAlert, useIonLoading } from "@ionic/react";
-import { personAdd, timeOutline } from 'ionicons/icons'
+import { personAdd, person } from 'ionicons/icons'
 import Verificar from "../../hook/verificar";
+import { useHistory } from "react-router-dom";
 
 const Register: React.FC = function Login() {
 
     const [formulario, setformulario] = useState({Nombre: "", Apellido: "", Dni: "", Usuario: "", Password: "", Repetir_Password: ""})
-
+    const History = useHistory();
     const [alert] = useIonAlert();
     const [present, dismiss] = useIonLoading();
 
@@ -37,6 +38,44 @@ const Register: React.FC = function Login() {
             return
         }
         // Register metodo post
+        await present({message: 'Cargando...'})
+
+        const _body = {datos: {Usuario, Password, Nombre, Apellido, Dni}};
+
+        fetch('https://appministerio.azurewebsites.net/register', {
+            method: "POST",
+            body: JSON.stringify(_body),
+            headers: {"Content-type": "application/json; charset=UTF-8"}
+        }).then(response => response.json())
+        .then(response => {
+            dismiss();
+            console.log(response)
+            
+            if (response.error !== 0) {
+                alert({
+                    header: 'Error, Con el Servidor',
+                    message: response.error,
+                    buttons: [{text: 'OK'}]
+                })
+            }else {
+                // todo sale bien - guardo el token y los datos
+                alert({
+                    header: 'Correcto',
+                    message: response.mensaje,
+                    buttons: [{text: 'OK'}],
+                    onWillDismiss: () => {History.push("/")}
+                })
+                
+            }
+            
+        })
+        .catch(err => {
+            alert({
+                header: 'Error, Algo salio mal',
+                message: 'Ocurrio un error al comunicar con el servidor ',
+                buttons: [{text: 'OK'}]
+            })
+        });
 
     }
     const onChange = async (event: any) => {
@@ -61,11 +100,11 @@ const Register: React.FC = function Login() {
                             </IonItem>
                             <IonItem>
                                 <IonLabel position="floating">Apellido</IonLabel>
-                                <IonInput type="password" name="Apellido" onIonChange={(e) => onChange(e)}></IonInput>
+                                <IonInput type="text" name="Apellido" onIonChange={(e) => onChange(e)}></IonInput>
                             </IonItem>
                             <IonItem>
                                 <IonLabel position="floating">Dni</IonLabel>
-                                <IonInput type="password" name="Dni" onIonChange={(e) => onChange(e)}></IonInput>
+                                <IonInput type="text" name="Dni" onIonChange={(e) => onChange(e)}></IonInput>
                             </IonItem>
                             <IonItem >
                                 <IonLabel position="floating">Usuario</IonLabel>
@@ -84,6 +123,12 @@ const Register: React.FC = function Login() {
                                 <IonButton expand="full" type="submit" color="secondary">
                                     <IonIcon icon={personAdd} slot="start"></IonIcon>
                                     Registrar
+                                </IonButton>
+                            </div>
+                            <div className="ion-margin-top">
+                                <IonButton expand="full" type="button" color="warning" onClick={() => {History.push("/login")}}>
+                                    <IonIcon icon={person} slot="start"></IonIcon>
+                                    Login
                                 </IonButton>
                             </div>
                         </form>

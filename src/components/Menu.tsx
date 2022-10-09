@@ -17,7 +17,7 @@ import {
 } from '@ionic/react';
 
 import { useLocation } from 'react-router-dom';
-import { homeOutline, home, bulbOutline, bulb } from 'ionicons/icons';
+import { homeOutline, home, bulbOutline, bulb, exit, exitOutline } from 'ionicons/icons';
 import './Menu.css';
 
 interface AppPage {
@@ -39,6 +39,12 @@ const appPages: AppPage[] = [
     url: '/page/Kit',
     iosIcon: bulbOutline,
     mdIcon: bulb
+  },
+  {
+    title: 'Salir',
+    url: '/',
+    iosIcon: exitOutline,
+    mdIcon: exit
   }
 ];
 
