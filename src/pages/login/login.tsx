@@ -1,12 +1,12 @@
-import {IonButton, IonCard, IonCardContent, IonContent, IonHeader, IonIcon, IonInput, IonItem, IonLabel, IonPage, IonTitle, IonToolbar, useIonAlert, useIonLoading } from "@ionic/react";
-import { useHistory } from "react-router-dom";
+import {IonButton, IonCard, IonCardContent, IonContent, IonHeader, IonIcon, IonInput, IonItem, IonLabel, IonPage, IonTitle, IonToolbar, useIonAlert, useIonLoading, useIonRouter } from "@ionic/react";
 import React, { useState } from "react";
 import { person, personAdd } from 'ionicons/icons'
 
 const login: React.FC = function Login() {
-    
-    const History = useHistory();
-    const [formulario, setformulario] = useState({Usuario: "", Password: ""})
+
+    const navigation = useIonRouter()
+
+    const [formulario, setformulario] = useState({Usuario: "albanojb", Password: "123"})
     const [alert] = useIonAlert();
     const [present, dismiss] = useIonLoading();
 
@@ -50,7 +50,18 @@ const login: React.FC = function Login() {
                     header: 'Correcto',
                     message: response.estado,
                     buttons: [{text: 'OK'}],
-                    onWillDismiss: () => {History.push("/page/Home")}
+                    onWillDismiss: () => {
+                        try {
+                            // almacenar token
+                            localStorage.setItem('token', response.token)
+                            // navegar a la pagina home
+                            navigation.push('/app', 'forward', 'replace')
+                        } catch (error) {
+                            console.log(error)
+                            navigation.push('/', 'forward', 'replace')
+                        }
+                        
+                    }
                 })
                 
             }
@@ -81,12 +92,12 @@ const login: React.FC = function Login() {
                         <form onSubmit={onSubmit}>
                             <IonItem >
                                 <IonLabel position="floating">Usuario</IonLabel>
-                                <IonInput type="text" name="Usuario" onIonChange={(e) => onChange(e)} ></IonInput>
+                                <IonInput type="text" name="Usuario" value={formulario.Usuario} onIonChange={(e) => onChange(e)} ></IonInput>
                             </IonItem>
 
                             <IonItem>
                                 <IonLabel position="floating">Password</IonLabel>
-                                <IonInput type="password" name="Password" onIonChange={(e) => onChange(e)}></IonInput>
+                                <IonInput type="password" name="Password" value={formulario.Password} onIonChange={(e) => onChange(e)}></IonInput>
                             </IonItem>
 
                             <div className="ion-margin-top">
@@ -96,7 +107,7 @@ const login: React.FC = function Login() {
                                 </IonButton>
                             </div>
                             <div className="ion-margin-top">
-                                <IonButton expand="full" type="button" color="warning" onClick={() => {History.push("/register")}}>
+                                <IonButton expand="full" type="button" color="warning" onClick={() => {navigation.push('/register', 'forward', 'replace')}}>
                                     <IonIcon icon={personAdd} slot="start"></IonIcon>
                                     Register
                                 </IonButton>

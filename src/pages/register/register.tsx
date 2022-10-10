@@ -1,13 +1,12 @@
 import React, { useState } from "react";
-import {IonButton, IonCard, IonCardContent, IonContent, IonHeader, IonIcon, IonInput, IonItem, IonLabel, IonPage, IonTitle, IonToolbar, useIonAlert, useIonLoading } from "@ionic/react";
+import {IonButton, IonCard, IonCardContent, IonContent, IonHeader, IonIcon, IonInput, IonItem, IonLabel, IonPage, IonTitle, IonToolbar, useIonAlert, useIonLoading, useIonRouter } from "@ionic/react";
 import { personAdd, person } from 'ionicons/icons'
 import Verificar from "../../hook/verificar";
-import { useHistory } from "react-router-dom";
 
 const Register: React.FC = function Login() {
 
     const [formulario, setformulario] = useState({Nombre: "", Apellido: "", Dni: "", Usuario: "", Password: "", Repetir_Password: ""})
-    const History = useHistory();
+    const navigation = useIonRouter()
     const [alert] = useIonAlert();
     const [present, dismiss] = useIonLoading();
 
@@ -63,7 +62,7 @@ const Register: React.FC = function Login() {
                     header: 'Correcto',
                     message: response.mensaje,
                     buttons: [{text: 'OK'}],
-                    onWillDismiss: () => {History.push("/")}
+                    onWillDismiss: () => {navigation.push('/login', 'forward', 'replace')}
                 })
                 
             }
@@ -126,7 +125,7 @@ const Register: React.FC = function Login() {
                                 </IonButton>
                             </div>
                             <div className="ion-margin-top">
-                                <IonButton expand="full" type="button" color="warning" onClick={() => {History.push("/login")}}>
+                                <IonButton expand="full" type="button" color="warning" onClick={() => {navigation.push('/login', 'forward', 'replace')}}>
                                     <IonIcon icon={person} slot="start"></IonIcon>
                                     Login
                                 </IonButton>

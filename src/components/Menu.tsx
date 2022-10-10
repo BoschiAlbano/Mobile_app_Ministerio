@@ -1,22 +1,22 @@
 import {
-  IonButtons,
   IonContent,
   IonHeader,
   IonIcon,
   IonItem,
   IonLabel,
-  IonList,
-  IonListHeader,
   IonMenu,
-  IonMenuButton,
   IonMenuToggle,
-  IonNote,
   IonPage,
+  IonRouterOutlet,
+  IonSplitPane,
   IonTitle,
   IonToolbar,
+  useIonRouter,
 } from '@ionic/react';
+import Home from '../pages/home/Home'
+import Idea from '../pages/Idea/Idea'
 
-import { useLocation } from 'react-router-dom';
+import { Redirect, Route, useLocation } from 'react-router-dom';
 import { homeOutline, home, bulbOutline, bulb, exit, exitOutline } from 'ionicons/icons';
 import './Menu.css';
 
@@ -30,28 +30,71 @@ interface AppPage {
 const appPages: AppPage[] = [
   {
     title: 'Home',
-    url: '/page/Home',
+    url: '/app/Home',
     iosIcon: homeOutline,
     mdIcon: home
   },
   {
     title: 'Kit Electrico',
-    url: '/page/Kit',
+    url: '/app/Kit',
     iosIcon: bulbOutline,
     mdIcon: bulb
-  },
-  {
-    title: 'Salir',
-    url: '/',
-    iosIcon: exitOutline,
-    mdIcon: exit
   }
 ];
 
 const Menu: React.FC = () => {
   const location = useLocation();
+  const navigation = useIonRouter()
+  
+  const salir = () => {
+    localStorage.removeItem('token')
+    navigation.push('/login', 'forward', 'replace')
+  }
 
+  return(
+    <IonPage>
+      <IonSplitPane contentId='main'>
+        <IonMenu contentId='main'>
+          
+          <IonHeader>
+            <IonToolbar>
+              <IonTitle>Menu</IonTitle>
+            </IonToolbar>
+          </IonHeader>
+            {appPages.map((appPage, index) => {
+                return (
+                  <IonMenuToggle key={index} autoHide={false}>
+                    <IonItem className={location.pathname === appPage.url ? 'selected' : ''} routerLink={appPage.url} routerDirection="none" lines="none" detail={false}>
+                      <IonIcon slot="start" ios={appPage.iosIcon} md={appPage.mdIcon} />
+                      <IonLabel>{appPage.title}</IonLabel>
+                    </IonItem>
+                  </IonMenuToggle>
+                );
+            })}
 
+            <IonItem className={location.pathname === '/' ? 'selected' : ''} onClick={() => salir()}>
+              <IonIcon slot="start" ios={exitOutline} md={exit} />
+              <IonLabel>Salir</IonLabel>
+            </IonItem>
+
+          <IonContent>
+
+          </IonContent>
+        </IonMenu>
+
+        <IonRouterOutlet id='main'>
+
+          <Route exact path="/app/Home" component={Home}></Route>
+          <Route exact path="/app/Kit" component={Idea}></Route>
+
+          <Route exact path="/app">
+            <Redirect to="/app/home" />
+          </Route>
+
+        </IonRouterOutlet>
+      </IonSplitPane>
+    </IonPage>
+  )
   return (
     <>
       <IonMenu contentId="main-content">
@@ -71,6 +114,12 @@ const Menu: React.FC = () => {
                 </IonMenuToggle>
               );
             })}
+
+            <IonItem className={location.pathname === '/' ? 'selected' : ''} onClick={() => salir()}>
+              <IonIcon slot="start" ios={exitOutline} md={exit} />
+              <IonLabel>Salir</IonLabel>
+            </IonItem>
+
         </IonContent>
       </IonMenu>
       <IonPage id="main-content">
@@ -79,26 +128,7 @@ const Menu: React.FC = () => {
     </>
   );
 
-  return (
-    <IonMenu contentId="main" type="overlay">
-      <IonContent>
-        <IonList id="inbox-list">
-          <IonListHeader>Menu</IonListHeader>
-          <IonNote>Albano jose Boschi</IonNote>
-          {appPages.map((appPage, index) => {
-            return (
-              <IonMenuToggle key={index} autoHide={false}>
-                <IonItem className={location.pathname === appPage.url ? 'selected' : ''} routerLink={appPage.url} routerDirection="none" lines="none" detail={false}>
-                  <IonIcon slot="start" ios={appPage.iosIcon} md={appPage.mdIcon} />
-                  <IonLabel>{appPage.title}</IonLabel>
-                </IonItem>
-              </IonMenuToggle>
-            );
-          })}
-        </IonList>
-      </IonContent>
-    </IonMenu>
-  );
+  
 };
 
 export default Menu;
