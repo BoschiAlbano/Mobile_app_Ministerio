@@ -25,3 +25,4 @@ const Idea: React.FC = () => {
 }
 
 export default Idea;
+//dar formato a la pagina (cambiar nombre)
