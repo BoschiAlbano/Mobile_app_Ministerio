@@ -57,7 +57,7 @@ const Menu: React.FC = () => {
         <IonMenu contentId='main'>
           
           <IonHeader>
-            <IonToolbar>
+            <IonToolbar color="secondary">
               <IonTitle>Menu</IonTitle>
             </IonToolbar>
           </IonHeader>
@@ -95,40 +95,6 @@ const Menu: React.FC = () => {
       </IonSplitPane>
     </IonPage>
   )
-  return (
-    <>
-      <IonMenu contentId="main-content">
-        <IonHeader>
-          <IonToolbar>
-            <IonTitle>ESTE ES EL TITULO</IonTitle>
-          </IonToolbar>
-        </IonHeader>
-        <IonContent className="ion-padding">
-          {appPages.map((appPage, index) => {
-              return (
-                <IonMenuToggle key={index} autoHide={false}>
-                  <IonItem className={location.pathname === appPage.url ? 'selected' : ''} routerLink={appPage.url} routerDirection="none" lines="none" detail={false}>
-                    <IonIcon slot="start" ios={appPage.iosIcon} md={appPage.mdIcon} />
-                    <IonLabel>{appPage.title}</IonLabel>
-                  </IonItem>
-                </IonMenuToggle>
-              );
-            })}
-
-            <IonItem className={location.pathname === '/' ? 'selected' : ''} onClick={() => salir()}>
-              <IonIcon slot="start" ios={exitOutline} md={exit} />
-              <IonLabel>Salir</IonLabel>
-            </IonItem>
-
-        </IonContent>
-      </IonMenu>
-      <IonPage id="main-content">
-
-      </IonPage>
-    </>
-  );
-
-  
 };
 
 export default Menu;

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { IonButton, IonButtons, IonContent, IonHeader, IonIcon, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { IonButton, IonButtons, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonContent, IonHeader, IonIcon, IonImg, IonItem, IonLabel, IonMenuButton, IonPage, IonThumbnail, IonTitle, IonToolbar } from '@ionic/react';
 //import { useParams } from 'react-router';
 //import ExploreContainer from '../components/ExploreContainer';
 import './Home.css';
@@ -20,7 +20,7 @@ const pagina: React.FC<props> = function Page({nombre}){
       <IonPage>
 
         <IonHeader>
-          <IonToolbar>
+          <IonToolbar color="secondary">
             <IonButtons slot="start">
               <IonMenuButton />
             </IonButtons>
@@ -39,10 +39,37 @@ const pagina: React.FC<props> = function Page({nombre}){
               </div> 
             </div>
             :
-            <div>
-              <h1>ESTA ES LA PAGINA DE HOME</h1>
-              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestias quae aperiam ipsam cupiditate magnam quis sint nostrum cumque, doloremque magni iure rem reprehenderit amet, itaque nam culpa laborum, optio excepturi.</p>
+            //<IonImg src="https://www.comunicaciontucuman.gob.ar/assets/documents/logo-gobierno-tucuman-horizontal.png"/>
+            // <IonCard>
+            //   <IonCardContent>
+            //     <IonItem>
+                  
+            //     </IonItem>
+            //   </IonCardContent>
+            // </IonCard>
+
+            <div id="carouselExampleControls" className="carousel slide" data-bs-ride="carousel">
+              <div className="carousel-inner">
+                <div className="carousel-item active">
+                  <img src="https://www.comunicaciontucuman.gob.ar/assets/documents/logo-gobierno-tucuman-horizontal.png" className="d-block w-100" alt="..."/>
+                </div>
+                <div className="carousel-item">
+                  <img src="https://www.comunicaciontucuman.gob.ar/assets/documents/logo-gobierno-tucuman-horizontal.png" className="d-block w-100" alt="..."/>
+                </div>
+                <div className="carousel-item">
+                  <img src="https://www.comunicaciontucuman.gob.ar/assets/documents/logo-gobierno-tucuman-horizontal.png" className="d-block w-100" alt="..."/>
+                </div>
+              </div>
+              <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span className="visually-hidden">Previous</span>
+              </button>
+              <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                <span className="visually-hidden">Next</span>
+              </button>
             </div>
+
           }
           
         </IonContent>

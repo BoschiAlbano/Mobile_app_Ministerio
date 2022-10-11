@@ -84,7 +84,7 @@ const Register: React.FC = function Login() {
     return(
         <IonPage>
             <IonHeader>
-                <IonToolbar color="primary">
+                <IonToolbar color="secondary">
                     <IonTitle>Register</IonTitle>
                 </IonToolbar>
             </IonHeader>
