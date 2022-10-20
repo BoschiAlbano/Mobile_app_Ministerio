@@ -90,7 +90,7 @@ const login: React.FC = function Login() {
                 <IonCard>
                     <IonCardContent>
                         <form onSubmit={onSubmit}>
-                            <IonItem >
+                            <IonItem>
                                 <IonLabel position="floating">Usuario</IonLabel>
                                 <IonInput type="text" name="Usuario" value={formulario.Usuario} onIonChange={(e) => onChange(e)} ></IonInput>
                             </IonItem>

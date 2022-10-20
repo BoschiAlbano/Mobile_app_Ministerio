@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
-import { IonButton, IonButtons, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonContent, IonHeader, IonIcon, IonImg, IonItem, IonLabel, IonMenuButton, IonPage, IonThumbnail, IonTitle, IonToolbar } from '@ionic/react';
+import React from "react";
+import { IonButtons, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonContent, IonFooter, IonHeader, IonIcon, IonInput, IonItem, IonLabel, IonList, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 //import { useParams } from 'react-router';
 //import ExploreContainer from '../components/ExploreContainer';
 import './Home.css';
-import { personAdd } from "ionicons/icons";
 import { useHistory } from "react-router";
+import { logoFacebook, logoInstagram, logoWhatsapp } from "ionicons/icons";
 interface props {
   nombre: string
 }
@@ -24,59 +24,136 @@ const pagina: React.FC<props> = function Page({nombre}){
             <IonButtons slot="start">
               <IonMenuButton />
             </IonButtons>
-            <IonTitle>Home {nombre}</IonTitle>
+            <IonTitle> {nombre}</IonTitle>
           </IonToolbar>
         </IonHeader>
 
-        <IonContent className="ion-padding">
-          {_token === null ? 
-            <div>
-              <div className="ion-margin-top">
-                <IonButton expand="full" type="button" color="warning" onClick={() => {History.push("/login")}}>
-                    <IonIcon icon={personAdd} slot="start"></IonIcon>
-                    login
-                </IonButton>
-              </div> 
+        <IonContent>
+          {/* Imagenes */}
+          <IonCard>
+            <div id="carouselExampleCaptions" className="carousel slide" data-bs-ride="carousel">
+                <div className="carousel-indicators">
+                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
+                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+                <div className="carousel-inner">
+                  <div className="carousel-item active">
+                    <img src="assets/images/IMG1.png" className="d-block w-100" alt="Obras en Tucuman"/>
+                    <div className="carousel-caption d-none d-md-block">
+                      <h5>Logo del Ministerio</h5>
+                      <p>Some representative placeholder content for the first slide.</p>
+                    </div>
+                  </div>
+                  <div className="carousel-item">
+                    <img src="assets/images/IMG2.png" className="d-block w-100" alt="Obras en Tucuman"/>
+                    <div className="carousel-caption d-none d-md-block">
+                      <h5>Second slide label</h5>
+                      <p>Some representative placeholder content for the second slide.</p>
+                    </div>
+                  </div>
+                  <div className="carousel-item">
+                    <img src="assets/images/IMG3.png" className="d-block w-100" alt="Obras en Tucuman"/>
+                    <div className="carousel-caption d-none d-md-block">
+                      <h5>Third slide label</h5>
+                      <p>Some representative placeholder content for the third slide.</p>
+                    </div>
+                  </div>
+                </div>
+                <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                  <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span className="visually-hidden">Previous</span>
+                </button>
+                <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                  <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span className="visually-hidden">Next</span>
+                </button>
             </div>
-            :
-            //<IonImg src="https://www.comunicaciontucuman.gob.ar/assets/documents/logo-gobierno-tucuman-horizontal.png"/>
-            // <IonCard>
-            //   <IonCardContent>
-            //     <IonItem>
-                  
-            //     </IonItem>
-            //   </IonCardContent>
-            // </IonCard>
+          </IonCard>
+        {/* Mision - Funciones - ORGANISMOS DEPENDIENTES Y ENTES VINCULADOS */}
+        <IonCard className="CardColor">
+          <IonCardContent className="CardPading">
+            <h2 className="titulo">Misiones y Funciones</h2>
+          </IonCardContent>
+        </IonCard>
+        
+        <IonCard>
+          <IonCardContent className="CardPading">
+            <ul>   
+              <li className="lista">Asistir al Departamento Ejecutivo en el estudio y evaluación técnica y económica de obras a realizarse dentro de los límites de Municipio.</li>
+              <li className="lista">Construir, controlar su ejecución y atender la conservación material de la obra pública que compone el Patrimonio Municipal.</li>
+              <li className="lista">Asesorar al Departamento Ejecutivo en todo lo atinente a la problemática urbanística del Municipio en relación al Área Metropolitana proponiendo las medidas tendientes al ordenamiento, uso y desarrollo armónico del espacio urbano.</li>
+            </ul>
+          </IonCardContent>
+        </IonCard>
+        {/* Datos de contacto */}
+        <IonCard className="CardColor">
+          <IonCardContent className="CardPading">
+            <h2 className="titulo">Datos de Contacto</h2>
+        </IonCardContent>
+        </IonCard>
+        <IonCard>
+          <IonCardContent>
+            <IonItem>
+            <IonLabel>Secretario: Lic. Pablo Carugati</IonLabel>
+          </IonItem>
+          <IonItem>
+            <IonLabel>Ubicacion: Juan Crisostomo Alvarez 457</IonLabel>
+          </IonItem>
+          <IonItem>
+            <IonLabel>Telefono: 0381 - 4226672 - 4226675</IonLabel>
+          </IonItem>
+          <IonItem>
+            <IonLabel>Mail: Ministerio@gmail.com</IonLabel>
+          </IonItem>
+          </IonCardContent>
+        </IonCard>
+        {/* obras */}
+        <IonCard className="CardColor">
+          <IonCardContent className="CardPading">
+            <h2 className="titulo">Obras en Progreso</h2>
+          </IonCardContent>
+        </IonCard>
+        <IonCard>
+          <img alt="Silhouette of mountains" src="https://www.comunicaciontucuman.gob.ar/fotos/notas/2022/06/15/220615172114_31308.jpeg" />
+          <IonCardHeader>
+            <IonCardTitle>“Penitenciaria Benjamín Paz”</IonCardTitle>
+            <IonCardSubtitle>“En Tucumán volvemos a tener una verdadera política carcelaria después de 100 años”</IonCardSubtitle>
+          </IonCardHeader>
 
-            <div id="carouselExampleControls" className="carousel slide" data-bs-ride="carousel">
-              <div className="carousel-inner">
-                <div className="carousel-item active">
-                  <img src="https://www.comunicaciontucuman.gob.ar/assets/documents/logo-gobierno-tucuman-horizontal.png" className="d-block w-100" alt="..."/>
-                </div>
-                <div className="carousel-item">
-                  <img src="https://www.comunicaciontucuman.gob.ar/assets/documents/logo-gobierno-tucuman-horizontal.png" className="d-block w-100" alt="..."/>
-                </div>
-                <div className="carousel-item">
-                  <img src="https://www.comunicaciontucuman.gob.ar/assets/documents/logo-gobierno-tucuman-horizontal.png" className="d-block w-100" alt="..."/>
-                </div>
-              </div>
-              <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-                <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span className="visually-hidden">Previous</span>
-              </button>
-              <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-                <span className="carousel-control-next-icon" aria-hidden="true"></span>
-                <span className="visually-hidden">Next</span>
-              </button>
+          <IonCardContent>
+          Con una inversión que asciende a los $5.250 millones aproximadamente y un plazo de construcción de 18 meses, el nuevo penal tendrá la capacidad de albergar, en una primera etapa, a mil reclusos.
+          </IonCardContent>
+        </IonCard>
+
+        <IonCard>
+          <div className="listonFooter">
+
+            <div className="datos">
+              <img className="imgRedes" src="assets/images/logo.png" alt="" />
             </div>
-
-          }
-          
+            <div className="contenedorRedes">
+              <a className="redes" href="https://es-la.facebook.com/" >
+                  <img className="imgRedes" src="assets/images/insta.png" alt="" />
+                </a>
+                <a className="redes" href="https://es-la.facebook.com/" >
+                  <img className="imgRedes" src="assets/images/face.png" alt="" />
+                </a>
+                <a className="redes" href="https://es-la.facebook.com/" >
+                  <img className="imgRedes" src="assets/images/wp.png" alt="" />
+                </a>
+            </div>
+              
+          </div>
+        </IonCard>
         </IonContent>
+
+        
     </IonPage>
     </>
     
   );
+
 }
 
 

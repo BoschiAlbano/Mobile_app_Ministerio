@@ -121,7 +121,7 @@ const Register: React.FC = function Login() {
                             <div className="ion-margin-top">
                                 <IonButton expand="full" type="submit" color="secondary">
                                     <IonIcon icon={personAdd} slot="start"></IonIcon>
-                                    Registrar
+                                    Register
                                 </IonButton>
                             </div>
                             <div className="ion-margin-top">
