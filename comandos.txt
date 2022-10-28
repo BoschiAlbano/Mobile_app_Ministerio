@@ -1,0 +1,12 @@
+*Desarrollo
+ionic serve
+
+*Git
+git add .
+git status
+git commit -m "home"
+git push -u origin Albano
+
+*Android
+1- ionic build
+2- npx cap add android

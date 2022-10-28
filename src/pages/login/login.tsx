@@ -1,7 +1,7 @@
-import {IonButton, IonCard, IonCardContent, IonContent, IonHeader, IonIcon, IonInput, IonItem, IonLabel, IonPage, IonTitle, IonToolbar, useIonAlert, useIonLoading, useIonRouter } from "@ionic/react";
+import {IonButton, IonCard, IonCardContent, IonCol, IonContent, IonGrid, IonHeader, IonIcon, IonImg, IonInput, IonItem, IonLabel, IonPage, IonRow, IonTitle, IonToolbar, useIonAlert, useIonLoading, useIonRouter } from "@ionic/react";
 import React, { useState } from "react";
 import { person, personAdd } from 'ionicons/icons'
-
+import "./login.css"
 const login: React.FC = function Login() {
 
     const navigation = useIonRouter()
@@ -46,24 +46,22 @@ const login: React.FC = function Login() {
                 })
             }else {
                 // todo sale bien - guardo el token y los datos
-                alert({
-                    header: 'Correcto',
-                    message: response.estado,
-                    buttons: [{text: 'OK'}],
-                    onWillDismiss: () => {
-                        try {
-                            // almacenar token
-                            localStorage.setItem('token', response.token)
-                            // navegar a la pagina home
-                            navigation.push('/app', 'forward', 'replace')
-                        } catch (error) {
-                            console.log(error)
-                            navigation.push('/', 'forward', 'replace')
-                        }
-                        
-                    }
-                })
-                
+                // alert({
+                //     header: 'Correcto',
+                //     message: response.estado,
+                //     buttons: [{text: 'OK'}],
+                //     onWillDismiss: () => {
+                //     }
+                // })
+                try {
+                    // almacenar token
+                    localStorage.setItem('token', response.token)
+                    // navegar a la pagina home
+                    navigation.push('/app', 'forward', 'replace')
+                } catch (error) {
+                    console.log(error)
+                    navigation.push('/', 'forward', 'replace')
+                }
             }
             
         })
@@ -80,40 +78,44 @@ const login: React.FC = function Login() {
         setformulario({...formulario, [event.target.name]: event.target.value})
     }
     return (
-        <IonPage>
+        <IonPage >
             <IonHeader>
                 <IonToolbar color="secondary">
-                    <IonTitle>Login</IonTitle>
+                    <h4>Ministerio de Obras y Servicios Publicos</h4> 
                 </IonToolbar>
             </IonHeader>
-            <IonContent>
-                <IonCard>
-                    <IonCardContent>
-                        <form onSubmit={onSubmit}>
-                            <IonItem>
-                                <IonLabel position="floating">Usuario</IonLabel>
-                                <IonInput type="text" name="Usuario" value={formulario.Usuario} onIonChange={(e) => onChange(e)} ></IonInput>
-                            </IonItem>
+            <IonContent className="Contenedor">
+                
+                <IonCard color="light">
+                        <IonCardContent color="light">
+                            <form onSubmit={onSubmit}>
+                                <IonItem color="light">
+                                    <IonLabel position="floating">Usuario</IonLabel>
+                                    <IonInput type="text" name="Usuario" value={formulario.Usuario} onIonChange={(e) => onChange(e)} ></IonInput>
+                                </IonItem>
 
-                            <IonItem>
-                                <IonLabel position="floating">Password</IonLabel>
-                                <IonInput type="password" name="Password" value={formulario.Password} onIonChange={(e) => onChange(e)}></IonInput>
-                            </IonItem>
+                                <IonItem color="light">
+                                    <IonLabel position="floating">Password</IonLabel>
+                                    <IonInput type="password" name="Password" value={formulario.Password} onIonChange={(e) => onChange(e)}></IonInput>
+                                </IonItem>
 
-                            <div className="ion-margin-top">
-                                <IonButton expand="full" type="submit" color="secondary">
-                                    <IonIcon icon={person} slot="start"></IonIcon>
-                                    Login
-                                </IonButton>
-                            </div>
-                            <div className="ion-margin-top">
-                                <IonButton expand="full" type="button" color="warning" onClick={() => {navigation.push('/register', 'forward', 'replace')}}>
-                                    <IonIcon icon={personAdd} slot="start"></IonIcon>
-                                    Register
-                                </IonButton>
-                            </div>
-                        </form>
-                    </IonCardContent>
+                                <div className="ion-margin-top">
+                                    <IonButton expand="full" type="submit" color="secondary">
+                                        <IonIcon icon={person} slot="start"></IonIcon>
+                                        Login
+                                    </IonButton>
+                                </div>
+                                <div className="ion-margin-top">
+                                    <IonButton expand="full" type="button" color="warning" onClick={() => {navigation.push('/register', 'forward', 'replace')}}>
+                                        <IonIcon icon={personAdd} slot="start"></IonIcon>
+                                        Register
+                                    </IonButton>
+                                </div>
+                            </form>
+                        </IonCardContent>
+                </IonCard>
+                <IonCard color="light">
+                    <IonImg src="/assets/images/logo-ministerio-obras-servicios-publicos.png" />
                 </IonCard>
             </IonContent>
         </IonPage>

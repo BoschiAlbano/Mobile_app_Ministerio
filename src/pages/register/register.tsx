@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {IonButton, IonCard, IonCardContent, IonContent, IonHeader, IonIcon, IonInput, IonItem, IonLabel, IonPage, IonTitle, IonToolbar, useIonAlert, useIonLoading, useIonRouter } from "@ionic/react";
+import {IonButton, IonCard, IonCardContent, IonContent, IonHeader, IonIcon, IonImg, IonInput, IonItem, IonLabel, IonPage, IonTitle, IonToolbar, useIonAlert, useIonLoading, useIonRouter } from "@ionic/react";
 import { personAdd, person } from 'ionicons/icons'
 import Verificar from "../../hook/verificar";
 
@@ -85,35 +85,35 @@ const Register: React.FC = function Login() {
         <IonPage>
             <IonHeader>
                 <IonToolbar color="secondary">
-                    <IonTitle>Register</IonTitle>
+                    <h4>Ministerio de Obras y Servicios Publicos</h4>
                 </IonToolbar>
             </IonHeader>
             <IonContent>
-                <IonCard>
-                    <IonCardContent>
+                <IonCard color="light">
+                    <IonCardContent color="light">
                         <form onSubmit={onSubmit}>
 
-                            <IonItem >
+                            <IonItem color="light" >
                                 <IonLabel position="floating">Nombre</IonLabel>
                                 <IonInput type="text" name="Nombre" onIonChange={(e) => onChange(e)} ></IonInput>
                             </IonItem>
-                            <IonItem>
+                            <IonItem color="light">
                                 <IonLabel position="floating">Apellido</IonLabel>
                                 <IonInput type="text" name="Apellido" onIonChange={(e) => onChange(e)}></IonInput>
                             </IonItem>
-                            <IonItem>
+                            <IonItem color="light">
                                 <IonLabel position="floating">Dni</IonLabel>
                                 <IonInput type="text" name="Dni" onIonChange={(e) => onChange(e)}></IonInput>
                             </IonItem>
-                            <IonItem >
+                            <IonItem color="light" >
                                 <IonLabel position="floating">Usuario</IonLabel>
                                 <IonInput type="text" name="Usuario" onIonChange={(e) => onChange(e)} ></IonInput>
                             </IonItem>
-                            <IonItem>
+                            <IonItem color="light">
                                 <IonLabel position="floating">Password</IonLabel>
                                 <IonInput type="password" name="Password" onIonChange={(e) => onChange(e)}></IonInput>
                             </IonItem>
-                            <IonItem>
+                            <IonItem color="light">
                                 <IonLabel position="floating">Repetir Password</IonLabel>
                                 <IonInput type="password" name="Repetir_Password" onIonChange={(e) => onChange(e)}></IonInput>
                             </IonItem>
@@ -132,6 +132,9 @@ const Register: React.FC = function Login() {
                             </div>
                         </form>
                     </IonCardContent>
+                </IonCard>
+                <IonCard color="light">
+                    <IonImg src="/assets/images/logo-ministerio-obras-servicios-publicos.png" />
                 </IonCard>
             </IonContent>
         </IonPage>

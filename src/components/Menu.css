@@ -49,7 +49,8 @@ ion-menu.md ion-item.selected {
 }
 
 ion-menu.md ion-item.selected ion-icon {
-  color: var(--ion-color-primary);
+  color: var(--ion-color-secondary);
+  
 }
 
 ion-menu.md ion-item ion-icon {
@@ -111,3 +112,12 @@ ion-note {
 ion-item.selected {
   --color: var(--ion-color-primary);
 } 
+
+
+#Botones{
+  padding: 1px;
+  margin: 1% 0%;
+  /* background: #c1c3c7; */
+  
+}
+
