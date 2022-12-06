@@ -30,7 +30,8 @@ const login: React.FC = function Login() {
         const _body = {datos: {Usuario, Password}};
 
         /*https://appministerio.azurewebsites.net/login*/
-        fetch('http://localhost:4000/Login', {
+        // http://localhost:4000/Login
+        fetch('https://appministerio.azurewebsites.net/login', {
             method: "POST",
             body: JSON.stringify(_body),
             headers: {"Content-type": "application/json; charset=UTF-8"}

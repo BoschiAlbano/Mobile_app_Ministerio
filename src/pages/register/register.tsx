@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {IonButton, IonCard, IonCardContent, IonContent, IonHeader, IonIcon, IonImg, IonInput, IonItem, IonLabel, IonPage, IonTitle, IonToolbar, useIonAlert, useIonLoading, useIonRouter } from "@ionic/react";
+import {IonButton, IonCard, IonCardContent, IonContent, IonHeader, IonIcon, IonImg, IonInput, IonItem, IonLabel, IonPage, IonToolbar, useIonAlert, useIonLoading, useIonRouter } from "@ionic/react";
 import { personAdd, person } from 'ionicons/icons'
 import Verificar from "../../hook/verificar";
 
@@ -42,7 +42,8 @@ const Register: React.FC = function Login() {
         const _body = {datos: {Usuario, Password, Nombre, Apellido, Dni}};
 
         /* https://appministerio.azurewebsites.net/register */
-        fetch('http://localhost:4000/Register', {
+        // http://localhost:4000/Register
+        fetch('https://appministerio.azurewebsites.net/register', {
             method: "POST",
             body: JSON.stringify(_body),
             headers: {"Content-type": "application/json; charset=UTF-8"}

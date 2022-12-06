@@ -1,5 +1,5 @@
 import React from "react";
-import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { IonButtons, IonContent, IonHeader, IonItem, IonList, IonMenuButton, IonPage, IonSelect, IonSelectOption, IonTitle, IonToolbar } from '@ionic/react';
 const Idea: React.FC = () => {
 
     return(
@@ -16,6 +16,18 @@ const Idea: React.FC = () => {
                 <div>
                     <h1>ESTA ES LA PAGINA DE KIT ELECTRICOS</h1>
                     <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestias quae aperiam ipsam cupiditate magnam quis sint nostrum cumque, doloremque magni iure rem reprehenderit amet, itaque nam culpa laborum, optio excepturi.</p>
+                </div>
+
+                <div>
+                <IonList>
+                    <IonItem>
+                        <IonSelect interface="action-sheet" placeholder="Select fruit">
+                        <IonSelectOption value="apples">Apples</IonSelectOption>
+                        <IonSelectOption value="oranges">Oranges</IonSelectOption>
+                        <IonSelectOption value="bananas">Bananas</IonSelectOption>
+                        </IonSelect>
+                    </IonItem>
+                </IonList>
                 </div>
             </IonContent>
             

@@ -3,7 +3,6 @@ import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, Io
 //import { useParams } from 'react-router';
 //import ExploreContainer from '../components/ExploreContainer';
 import './Home.css';
-import { useHistory } from "react-router";
 import Carrusel from "../../components/home/carrusel";
 import Acordeon from "../../components/home/acordeon";
 import Obras from "../../components/home/obras";
@@ -14,7 +13,6 @@ interface props {
 }
 
 const pagina: React.FC<props> = function Page({nombre}){
-  const History = useHistory();
 
   return (
     <>

@@ -9,7 +9,7 @@ const Obras = () => {
     useEffect(() => {
       setLoading(true)
   
-      fetch('http://localhost:4000/Obras')
+      fetch('https://appministerio.azurewebsites.net/Obras')
       .then(res => res.json())
       .then(res => {
         setObras(res)

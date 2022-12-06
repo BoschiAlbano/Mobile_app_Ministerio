@@ -77,7 +77,7 @@ const Menu = () => {
   useEffect(() => {
     const data =  localStorage.getItem('usuario')
     const _usuario = JSON.parse(data)
-    if (_usuario.Admin == 1) {
+    if (_usuario.Admin === 1) {
       SetIsAdmin(true)
     }
 

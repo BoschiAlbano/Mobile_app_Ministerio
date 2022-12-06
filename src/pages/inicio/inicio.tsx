@@ -10,13 +10,13 @@ const Inicio: React.FC = () => {
         setTimeout(function(){
             navigation.push('/login', 'forward', 'replace')
         }, 4000);
-    },[])
+    },[navigation])
 
     return(
         <IonPage>
             <IonContent>
                 <div className="fondo">
-                    <img className="ministerio" src="assets/images/Ministerio.png" />
+                    <img className="ministerio" src="assets/images/Ministerio.png" alt="Imagen Logo de Inicio de Aplicacion"/>
                 </div>
             </IonContent>
       </IonPage>

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import {IonButton, IonCard, IonCardContent, IonCardHeader, IonIcon, IonInput, IonItem, IonLabel, IonTitle, useIonAlert, useIonLoading, useIonRouter } from "@ionic/react";
+import {IonButton, IonCard, IonCardContent, IonCardHeader, IonIcon, IonInput, IonItem, IonLabel, IonTitle, useIonAlert, useIonLoading } from "@ionic/react";
 import {addCircleSharp } from 'ionicons/icons'
 import Verificar from "../../hook/verificar";
 
@@ -33,7 +33,8 @@ const CrudObras = () => {
         const _token = "Bearer "+localStorage.getItem("token")
 
         /* https://appministerio.azurewebsites.net/Obras */
-        fetch('http://localhost:4000/Obras', {
+        // http://localhost:4000/Obras
+        fetch('https://appministerio.azurewebsites.net/Obras', {
             method: "POST",
             body: JSON.stringify(_body),
             headers: {"Content-type": "application/json; charset=UTF-8","Authorization": _token}
