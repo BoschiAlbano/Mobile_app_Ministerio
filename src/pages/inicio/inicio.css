@@ -1,7 +1,15 @@
 .fondo{
-    width: 100%;
-    min-height: 100vh;
+    background: url(../../../public/assets/images/fondo.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: 100%;
+    background-size: cover;
+}
 
-    
-    padding: 0px;
+.ministerio{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 0.5rem;
+    object-fit: contain;
 }

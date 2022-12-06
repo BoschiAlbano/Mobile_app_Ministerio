@@ -15,7 +15,9 @@ const Inicio: React.FC = () => {
     return(
         <IonPage>
             <IonContent>
-                <img className="fondo" src="assets/images/Ministerio.png" />
+                <div className="fondo">
+                    <img className="ministerio" src="assets/images/Ministerio.png" />
+                </div>
             </IonContent>
       </IonPage>
         

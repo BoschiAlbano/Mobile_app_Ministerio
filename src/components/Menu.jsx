@@ -15,21 +15,30 @@ import {
   useIonRouter,
 } from '@ionic/react';
 import Home from '../pages/home/Home'
-import Idea from '../pages/Idea/Idea'
-import Componente from '../components/Componentes/InfiniteScroll/index'
+import Idea from '../pages/kitElectrico/kitElectrico'
+import Componente from './Componentes/InfiniteScroll/index'
+import Administracion from './Admin/administracion';
 
 import { Redirect, Route, useLocation } from 'react-router-dom';
 import { homeOutline, home, bulbOutline, bulb, exit, exitOutline } from 'ionicons/icons';
 import './Menu.css';
+import { useEffect, useState } from 'react';
 
-interface AppPage {
-  url: string;
-  iosIcon: string;
-  mdIcon: string;
-  title: string;
-}
-
-const appPages: AppPage[] = [
+const MenuUsuario = [
+  {
+    title: 'Home',
+    url: '/app/Home',
+    iosIcon: homeOutline,
+    mdIcon: home
+  },
+  {
+    title: 'Kit Electrico',
+    url: '/app/Kit',
+    iosIcon: bulbOutline,
+    mdIcon: bulb
+  }
+];
+const MenuAdmin = [
   {
     title: 'Home',
     url: '/app/Home',
@@ -48,13 +57,32 @@ const appPages: AppPage[] = [
     url: '/app/Componentes',
     iosIcon: bulbOutline,
     mdIcon: bulb
+  },
+  {
+    title: 'Admin',
+    url: '/app/Administracion',
+    iosIcon: bulbOutline,
+    mdIcon: bulb
   }
 ];
 
-const Menu: React.FC = () => {
-  const location = useLocation();
+const Menu = () => {
+
+  const location = useLocation()
   const navigation = useIonRouter()
-  const [alert] = useIonAlert();
+  const [alert] = useIonAlert()
+
+  const [IsAdmin, SetIsAdmin] = useState(false)
+
+  useEffect(() => {
+    const data =  localStorage.getItem('usuario')
+    const _usuario = JSON.parse(data)
+    if (_usuario.Admin == 1) {
+      SetIsAdmin(true)
+    }
+
+  },[IsAdmin])
+
   const salir = () => {
 
     alert({
@@ -69,6 +97,7 @@ const Menu: React.FC = () => {
             role: 'confirm',
             handler: () => {
               localStorage.removeItem('token')
+              localStorage.removeItem('usuario')
               navigation.push('/login', 'forward', 'replace')
             },
           },],
@@ -87,7 +116,8 @@ const Menu: React.FC = () => {
             </IonToolbar>
           </IonHeader>
           <IonContent color="light">
-            {appPages.map((appPage, index) => {
+            {IsAdmin ?
+              MenuAdmin.map((appPage, index) => {
                 return (
                   <IonMenuToggle  key={index} autoHide={false}>
                     <IonItem id='Botones' color="light" className={location.pathname === appPage.url ? 'selected' : ''} routerLink={appPage.url} routerDirection="none" lines="none" detail={false}>
@@ -96,14 +126,27 @@ const Menu: React.FC = () => {
                     </IonItem>
                   </IonMenuToggle>
                 );
-            })}
-            </IonContent>
+              })
+              :
+              MenuUsuario.map((appPage, index) => {
+                return (
+                  <IonMenuToggle  key={index} autoHide={false}>
+                    <IonItem id='Botones' color="light" className={location.pathname === appPage.url ? 'selected' : ''} routerLink={appPage.url} routerDirection="none" lines="none" detail={false}>
+                      <IonIcon slot="start" ios={appPage.iosIcon} md={appPage.mdIcon} />
+                      <IonLabel>{appPage.title}</IonLabel>
+                    </IonItem>
+                  </IonMenuToggle>
+                );
+              })
+            }
+          </IonContent>
 
-            <IonItem  color="light" className={location.pathname === '/' ? 'selected' : ''} onClick={() => salir()}>
-              <IonIcon slot="start" ios={exitOutline} md={exit} />
-              <IonLabel>Salir</IonLabel>
-            </IonItem>
-
+            <div id='btnSalir'>
+              <IonItem  color="light" className={location.pathname === '/' ? 'selected' : ''} onClick={() => salir()}>
+                <IonIcon slot="start" ios={exitOutline} md={exit} />
+                <IonLabel>Salir</IonLabel>
+              </IonItem>
+            </div>
 
         </IonMenu>
 
@@ -112,6 +155,7 @@ const Menu: React.FC = () => {
           <Route exact path="/app/Home" component={Home}></Route>
           <Route exact path="/app/Kit" component={Idea}></Route>
           <Route exact path="/app/Componentes" component={Componente}></Route>
+          <Route exact path="/app/Administracion" component={Administracion}></Route>
           
           <Route exact path="/app">
             <Redirect to="/app/home" />
@@ -121,6 +165,6 @@ const Menu: React.FC = () => {
       </IonSplitPane>
     </IonPage>
   )
-};
+}
 
 export default Menu;

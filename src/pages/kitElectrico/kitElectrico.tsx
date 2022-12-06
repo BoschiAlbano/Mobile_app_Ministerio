@@ -9,7 +9,7 @@ const Idea: React.FC = () => {
                     <IonButtons slot="start">
                     <IonMenuButton />
                     </IonButtons>
-                    <IonTitle>Idea de Pagina de Kit</IonTitle>
+                    <IonTitle>Kit Electrico</IonTitle>
                 </IonToolbar>
             </IonHeader>
             <IonContent className="ion-padding">

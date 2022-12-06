@@ -41,7 +41,8 @@ const Register: React.FC = function Login() {
 
         const _body = {datos: {Usuario, Password, Nombre, Apellido, Dni}};
 
-        fetch('https://appministerio.azurewebsites.net/register', {
+        /* https://appministerio.azurewebsites.net/register */
+        fetch('http://localhost:4000/Register', {
             method: "POST",
             body: JSON.stringify(_body),
             headers: {"Content-type": "application/json; charset=UTF-8"}
@@ -69,6 +70,7 @@ const Register: React.FC = function Login() {
             
         })
         .catch(err => {
+            dismiss();
             alert({
                 header: 'Error, Algo salio mal',
                 message: 'Ocurrio un error al comunicar con el servidor ',
@@ -85,7 +87,7 @@ const Register: React.FC = function Login() {
         <IonPage>
             <IonHeader>
                 <IonToolbar color="secondary">
-                    <h4>Ministerio de Obras y Servicios Publicos</h4>
+                    <h5 className="center">Ministerio de Obras y Servicios Publicos</h5>
                 </IonToolbar>
             </IonHeader>
             <IonContent>

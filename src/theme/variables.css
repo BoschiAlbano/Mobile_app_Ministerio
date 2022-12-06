@@ -1,6 +1,9 @@
 /* Ionic Variables and Theming. For more info, please see:
 http://ionicframework.com/docs/theming/ */
-
+.center{
+  text-align: center;
+  font-style: italic;
+}
 /** Ionic CSS Variables **/
 :root {
   /** primary **/

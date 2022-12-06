@@ -1,4 +1,4 @@
-import {IonButton, IonCard, IonCardContent, IonCol, IonContent, IonGrid, IonHeader, IonIcon, IonImg, IonInput, IonItem, IonLabel, IonPage, IonRow, IonTitle, IonToolbar, useIonAlert, useIonLoading, useIonRouter } from "@ionic/react";
+import {IonButton, IonCard, IonCardContent, IonContent, IonHeader, IonIcon, IonImg, IonInput, IonItem, IonLabel, IonPage, IonToolbar, useIonAlert, useIonLoading, useIonRouter } from "@ionic/react";
 import React, { useState } from "react";
 import { person, personAdd } from 'ionicons/icons'
 import "./login.css"
@@ -29,7 +29,8 @@ const login: React.FC = function Login() {
 
         const _body = {datos: {Usuario, Password}};
 
-        fetch('https://appministerio.azurewebsites.net/login', {
+        /*https://appministerio.azurewebsites.net/login*/
+        fetch('http://localhost:4000/Login', {
             method: "POST",
             body: JSON.stringify(_body),
             headers: {"Content-type": "application/json; charset=UTF-8"}
@@ -56,6 +57,7 @@ const login: React.FC = function Login() {
                 try {
                     // almacenar token
                     localStorage.setItem('token', response.token)
+                    localStorage.setItem('usuario', JSON.stringify(response.datos))
                     // navegar a la pagina home
                     navigation.push('/app', 'forward', 'replace')
                 } catch (error) {
@@ -66,6 +68,7 @@ const login: React.FC = function Login() {
             
         })
         .catch(err => {
+            dismiss();
             alert({
                 header: 'Error, Algo salio mal',
                 message: 'Ocurrio un error al comunicar con el servidor ',
@@ -81,7 +84,7 @@ const login: React.FC = function Login() {
         <IonPage >
             <IonHeader>
                 <IonToolbar color="secondary">
-                    <h4>Ministerio de Obras y Servicios Publicos</h4> 
+                    <h5 className="center">Ministerio de Obras y Servicios Publicos</h5> 
                 </IonToolbar>
             </IonHeader>
             <IonContent className="Contenedor">
@@ -123,9 +126,3 @@ const login: React.FC = function Login() {
 }
 
 export default login
-
-/*  Servidor
-    Aumentar tiempo de expiracion de token
-    Corregir las respuestas del servidor, con un error y mensaje - estado
-    login responder ademas con todos los datos del usuario
-*/
