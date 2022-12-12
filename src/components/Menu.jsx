@@ -104,25 +104,24 @@ const Menu = () => {
     })
     
   }
-
+  //<IonTitle>Menu</IonTitle>
   return(
     <IonPage>
       <IonSplitPane contentId='main'>
         <IonMenu contentId='main'>
           
-          <IonHeader>
-            <IonToolbar color="secondary">
-              <IonTitle>Menu</IonTitle>
-            </IonToolbar>
-          </IonHeader>
-          <IonContent color="light">
+          <IonContent>
+            <div className='menu-header-bg'></div>
+            <div className='header-content'>
+              <img className='header-logo' src='assets/images/Logo.png'></img>
+            </div>
             {IsAdmin ?
               MenuAdmin.map((appPage, index) => {
                 return (
                   <IonMenuToggle  key={index} autoHide={false}>
-                    <IonItem id='Botones' color="light" className={location.pathname === appPage.url ? 'selected' : ''} routerLink={appPage.url} routerDirection="none" lines="none" detail={false}>
+                    <IonItem id='Botones' className={location.pathname === appPage.url ? 'selected' : ''} routerLink={appPage.url} routerDirection="none" lines="none" detail={false}>
                       <IonIcon slot="start" ios={appPage.iosIcon} md={appPage.mdIcon} />
-                      <IonLabel>{appPage.title}</IonLabel>
+                      <IonLabel id='ionlabel'>{appPage.title}</IonLabel>
                     </IonItem>
                   </IonMenuToggle>
                 );
@@ -142,9 +141,9 @@ const Menu = () => {
           </IonContent>
 
             <div id='btnSalir'>
-              <IonItem  color="light" className={location.pathname === '/' ? 'selected' : ''} onClick={() => salir()}>
-                <IonIcon slot="start" ios={exitOutline} md={exit} />
-                <IonLabel>Salir</IonLabel>
+              <IonItem className={location.pathname === '/' ? 'selected' : ''} onClick={() => salir()}>
+                <IonIcon color='danger' slot="start" ios={exitOutline} md={exit} />
+                <IonLabel id='ionlabel'>Salir</IonLabel>
               </IonItem>
             </div>
 

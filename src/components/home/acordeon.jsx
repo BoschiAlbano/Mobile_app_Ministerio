@@ -2,9 +2,14 @@ import React from 'react';
 import {IonCard, IonCardContent} from '@ionic/react';
 
 const Acordeon = () => {
-    return (
-        <IonCard color="light">
-          <IonCardContent color="light" className="CardPading">
+    return (<>
+        <IonCard color={'medium'}>
+            <IonCardContent className="CardPading">
+                <h2 id="titulo">Acerca del Ministerio</h2>
+            </IonCardContent>
+            </IonCard>
+        <IonCard>
+          <IonCardContent className="CardPading">
           {/* Misiones */}
           <div className="accordion accordion-flush" id="accordionFlushExample">
             <div className="accordion-item">
@@ -62,6 +67,7 @@ const Acordeon = () => {
           </div>
           </IonCardContent>
         </IonCard>
+    </>
     );
 }
 

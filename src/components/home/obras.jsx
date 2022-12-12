@@ -19,9 +19,9 @@ const Obras = () => {
 
     return (
         <>
-            <IonCard color="secondary">
+            <IonCard color={'medium'}>
             <IonCardContent className="CardPading">
-                <h2 className="titulo">Obras en Progreso</h2>
+                <h2 id="titulo">Obras en Progreso</h2>
             </IonCardContent>
             </IonCard>
 
@@ -32,10 +32,10 @@ const Obras = () => {
                 <IonCard color="light" key={index}>
                     <IonImg alt="Silhouette of mountains" src={value.Url}/>
                     <IonCardHeader>
-                    <IonCardTitle>{value.Titulo}</IonCardTitle>
-                    <IonCardSubtitle>{value.SubTitulo}</IonCardSubtitle>
+                    <IonCardTitle id='ioncardtitle'>{value.Titulo}</IonCardTitle>
+                    <IonCardSubtitle id='ioncardsubtitle'>{value.SubTitulo}</IonCardSubtitle>
                     </IonCardHeader>
-                    <IonCardContent>{value.Descripcion}</IonCardContent>
+                    <IonCardContent id='ioncardcontent'>{value.Descripcion}</IonCardContent>
                 </IonCard>
                 )
             })

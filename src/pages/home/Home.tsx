@@ -20,12 +20,11 @@ const pagina: React.FC<props> = function Page({nombre}){
       <IonPage>
 
         <IonHeader>
-          <IonToolbar color="secondary" >
-          
+          <IonToolbar color={'medium'} >
+            <IonTitle id="iontitle" color={'dark'}>Home</IonTitle>
             <IonButtons slot="start">
-              <IonMenuButton />
+              <IonMenuButton color={'dark'} id="ionbtnmenu" />
             </IonButtons>
-            <IonTitle>Home</IonTitle>
           </IonToolbar>
         </IonHeader>
 
