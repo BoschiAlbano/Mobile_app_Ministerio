@@ -88,27 +88,29 @@ const login: React.FC = function Login() {
     return (
         <Layout ruta={'register'}>
             <div className="contenedorlogin">
-                <IonImg id="logoLogin" src="/assets/images/Logo.png" />
-                <form className="formulario" onSubmit={onSubmit}>
+                    
+                    <IonImg id="logoLogin" src="/assets/images/Logo.png" />
+                    
+                    <form className="formulario" onSubmit={onSubmit}>
 
-                    <div className={'input_group'}>
-                        <input className={'input_text'} type="text" name="Usuario" value={formulario.Usuario} onChange={(e) => onChange(e)}placeholder='Usuario'/>
-                        <span className={'icono'}><IonImg src={personAddSharp}/></span>
-                    </div>
+                        <div className={'input_group'}>
+                            <input className={'input_text'} type="text" name="Usuario" value={formulario.Usuario} onChange={(e) => onChange(e)}placeholder='Usuario'/>
+                            <span className={'icono'}><IonImg src={personAddSharp}/></span>
+                        </div>
 
-                    <div className={'input_group'}>
-                        <input className={'input_text'} type={`${verPass ? 'text' : 'password'}`}  name="Password" value={formulario.Password} onChange={(e) => onChange(e)}placeholder='password'/>
-                        <span className={'icono'}><IonImg onClick={() => setverPass(!verPass)} src={fingerPrintSharp}/></span>
-                    </div>
+                        <div className={'input_group'}>
+                            <input className={'input_text'} type={`${verPass ? 'text' : 'password'}`}  name="Password" value={formulario.Password} onChange={(e) => onChange(e)}placeholder='password'/>
+                            <span className={'icono'}><IonImg onClick={() => setverPass(!verPass)} src={fingerPrintSharp}/></span>
+                        </div>
 
-                    <div className="ion-margin-top">
-                        <button className="btnlogin">Login</button>
-                    </div>
-                    <div className="ion-margin-top">
-                        <label> ¿Ya tienes una Cuenta? <br/> <Link to={'/register'}>Registrate Ahora !!!</Link></label>
-                    </div>
-                </form>
-            </div>
+                        <div className="ion-margin-top">
+                            <button className="btnlogin">Login</button>
+                        </div>
+                        <div className="ion-margin-top">
+                            <label> ¿Aun No tienes una Cuenta? <br/> <Link to={'/register'}>Registrate Ahora !!!</Link></label>
+                        </div>
+                    </form>
+                </div>
         </Layout>
     )
 }

@@ -5,6 +5,8 @@
     align-items: center;
     margin-top: 15px;
     gap: 30px;
+
+    max-width: 90%;
 }
 
 

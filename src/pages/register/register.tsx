@@ -89,50 +89,48 @@ const Register: React.FC = function Login() {
     }
 
     return (
-        <div>
         <Layout ruta={'login'}>
             <div className="contenedorRegister">
-                <form onSubmit={onSubmit}>
+                    <form onSubmit={onSubmit}>
 
-                    <div className={'input_group'}>
-                        <input className={'input_text'} type="text" name="Nombre" onChange={(e) => onChange(e)} placeholder='Nombre' />
-                        <span className={'icono'}><IonImg src={personAddSharp} /></span>
-                    </div>
-
-                    <div className={'input_group'}>
-                        <input className={'input_text'} type="text" name="Apellido" onChange={(e) => onChange(e)} placeholder='Apellido' />
-                        <span className={'icono'}><IonImg src={personAddSharp} /></span>
-                    </div>
-
-                    <div className={'input_group'}>
-                        <input className={'input_text'} type="text" name="Dni" onChange={(e) => onChange(e)} placeholder='Dni' />
-                        <span className={'icono'}><IonImg src={personAddSharp} /></span>
-                    </div>
-
-                    <div className={'input_group'}>
-                        <input className={'input_text'} type="text" name="Usuario" onChange={(e) => onChange(e)} placeholder='Usuario' />
-                        <span className={'icono'}><IonImg src={personAddSharp} /></span>
-                    </div>
-
-                    <div className={'input_group'}>
-                        <input className={'input_text'} type={`${verPass ? 'text' : 'password'}`} name="Password" onChange={(e) => onChange(e)} placeholder='Password' />
-                        <span className={'icono'}><IonImg onClick={() => setverPass(!verPass)} src={fingerPrintSharp} /></span>
-                    </div>
-
-                    <div className={'input_group'}>
-                        <input className={'input_text'} type={`${verPassRep ? 'text' : 'password'}`} name="Repetir_Password" onChange={(e) => onChange(e)} placeholder='Repetir Password' />
-                        <span className={'icono'}><IonImg onClick={() => setverPassRep(!verPassRep)} src={fingerPrintSharp} /></span>
-                    </div>
-
-                    <div className="ion-margin-top">
-                        <div className="ion-margin-top">
-                            <button type={'submit'} className="btnlogin">Register</button>
+                        <div className={'input_group'}>
+                            <input className={'input_text'} type="text" name="Nombre" onChange={(e) => onChange(e)} placeholder='Nombre' />
+                            <span className={'icono'}><IonImg src={personAddSharp} /></span>
                         </div>
-                    </div>
-                </form>
-            </div>
+
+                        <div className={'input_group'}>
+                            <input className={'input_text'} type="text" name="Apellido" onChange={(e) => onChange(e)} placeholder='Apellido' />
+                            <span className={'icono'}><IonImg src={personAddSharp} /></span>
+                        </div>
+
+                        <div className={'input_group'}>
+                            <input className={'input_text'} type="text" name="Dni" onChange={(e) => onChange(e)} placeholder='Dni' />
+                            <span className={'icono'}><IonImg src={personAddSharp} /></span>
+                        </div>
+
+                        <div className={'input_group'}>
+                            <input className={'input_text'} type="text" name="Usuario" onChange={(e) => onChange(e)} placeholder='Usuario' />
+                            <span className={'icono'}><IonImg src={personAddSharp} /></span>
+                        </div>
+
+                        <div className={'input_group'}>
+                            <input className={'input_text'} type={`${verPass ? 'text' : 'password'}`} name="Password" onChange={(e) => onChange(e)} placeholder='Password' />
+                            <span className={'icono'}><IonImg onClick={() => setverPass(!verPass)} src={fingerPrintSharp} /></span>
+                        </div>
+
+                        <div className={'input_group'}>
+                            <input className={'input_text'} type={`${verPassRep ? 'text' : 'password'}`} name="Repetir_Password" onChange={(e) => onChange(e)} placeholder='Repetir Password' />
+                            <span className={'icono'}><IonImg onClick={() => setverPassRep(!verPassRep)} src={fingerPrintSharp} /></span>
+                        </div>
+
+                        <div className="ion-margin-top">
+                            <div className="ion-margin-top">
+                                <button type={'submit'} className="btnlogin">Register</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
         </Layout>
-        </div>
 
     );
 }

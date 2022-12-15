@@ -12,24 +12,24 @@ const Carrusel = () => {
                 </div>
                 <div className="carousel-inner">
                   <div className="carousel-item active">
-                    {/* <img src="assets/images/IMG1.png" className="d-block w-100" alt="Obras en Tucuman"/> */}
-                    <IonImg src="assets/images/IMG1.png" className="d-block w-100" alt="Obras en Tucuman"></IonImg>
+                    {/* <img src="assets/images/IMG1.jpg" className="d-block w-100" alt="Obras en Tucuman"/> */}
+                    <IonImg src="assets/images/IMG1.jpg" className="d-block w-100" alt="Obras en Tucuman"></IonImg>
                     <div className="carousel-caption d-none d-md-block">
                       <h5>Logo del Ministerio</h5>
                       <p>Some representative placeholder content for the first slide.</p>
                     </div>
                   </div>
                   <div className="carousel-item">
-                    {/* <img src="assets/images/IMG2.png" className="d-block w-100" alt="Obras en Tucuman"/> */}
-                    <IonImg src="assets/images/IMG2.png" className="d-block w-100" alt="Obras en Tucuman"></IonImg>
+                    {/* <img src="assets/images/IMG2.jpg" className="d-block w-100" alt="Obras en Tucuman"/> */}
+                    <IonImg src="assets/images/IMG2.jpg" className="d-block w-100" alt="Obras en Tucuman"></IonImg>
                     <div className="carousel-caption d-none d-md-block">
                       <h5>Second slide label</h5>
                       <p>Some representative placeholder content for the second slide.</p>
                     </div>
                   </div>
                   <div className="carousel-item">
-                    {/* <img src="assets/images/IMG3.png" className="d-block w-100" alt="Obras en Tucuman"/> */}
-                    <IonImg src="assets/images/IMG3.png" className="d-block w-100" alt="Obras en Tucuman"></IonImg>
+                    {/* <img src="assets/images/IMG3.jpg" className="d-block w-100" alt="Obras en Tucuman"/> */}
+                    <IonImg src="assets/images/IMG3.jpg" className="d-block w-100" alt="Obras en Tucuman"></IonImg>
                     <div className="carousel-caption d-none d-md-block">
                       <h5>Third slide label</h5>
                       <p>Some representative placeholder content for the third slide.</p>
