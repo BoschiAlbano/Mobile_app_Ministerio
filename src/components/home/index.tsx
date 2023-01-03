@@ -2,11 +2,11 @@ import React from "react";
 import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 //import { useParams } from 'react-router';
 //import ExploreContainer from '../components/ExploreContainer';
-import './Home.css';
-import Carrusel from "../../components/home/carrusel";
-import Acordeon from "../../components/home/acordeon";
-import Obras from "../../components/home/obras";
-import RedesSociales from "../../components/home/redesSociales";
+import './index.css';
+import Carrusel from "./components/carrusel";
+import Acordeon from "./components/acordeon";
+import Obras from "./components/obras";
+import RedesSociales from "./components/redesSociales";
 
 interface props {
   nombre: string
@@ -17,7 +17,7 @@ const pagina: React.FC<props> = function Page({nombre}){
   return (
     <>
       {/* <Menu/> */}
-      <IonPage>
+      <IonPage className="home">
 
         <IonHeader>
           <IonToolbar color={'medium'} >

@@ -6,6 +6,14 @@ http://ionicframework.com/docs/theming/ */
   text-align: center;
   font-style: italic;
 }
+
+#Ion_Icon{
+  font-size: xx-large;
+}
+
+#acercaApp #Ion_Icon{
+  font-size: x-large;
+}
 /** Ionic CSS Variables **/
 :root {
   /** primary **/
@@ -131,7 +139,7 @@ http://ionicframework.com/docs/theming/ */
     --ion-color-danger-shade: #e04055;
     --ion-color-danger-tint: #ff5b71;
 
-    --ion-color-dark: #f4f5f8;
+    --ion-color-dark: #ffffff;
     --ion-color-dark-rgb: 244,245,248;
     --ion-color-dark-contrast: #000000;
     --ion-color-dark-contrast-rgb: 0,0,0;
@@ -150,7 +158,7 @@ http://ionicframework.com/docs/theming/ */
     --ion-color-light-contrast: #ffffff;
     --ion-color-light-contrast-rgb: 255,255,255;
     --ion-color-light-shade: #1e2023;
-    --ion-color-light-tint: #383a3e;
+    --ion-color-light-tint: #3a3e38;
   }
 
   /*

@@ -22,7 +22,7 @@ ion-menu.md ion-list-header, ion-menu.md ion-note {
 }
 
 ion-menu.md ion-list#inbox-list {
-  border-bottom: 1px solid var(--ion-color-step-150, #d7d8da);
+  border-bottom: 1px solid var(--ion-color-step-150, rgb(0, 255, 42));
 }
 
 ion-menu.md ion-list#inbox-list ion-list-header {
@@ -54,7 +54,7 @@ ion-menu.md ion-item.selected ion-icon {
 }
 
 ion-menu.md ion-item ion-icon {
-  color: #616e7e;
+  color: #1a3a61;
 }
 
 ion-menu.md ion-item ion-label {
@@ -82,7 +82,7 @@ ion-menu.ios ion-item {
 
 ion-menu.ios ion-item ion-icon {
   font-size: 24px;
-  color: #73849a;
+  color: #739a75;
 }
 
 ion-menu.ios ion-item .selected ion-icon {
