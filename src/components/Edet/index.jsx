@@ -1,27 +1,38 @@
 import './index.css'
 import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 
+import Banner from '../Componentes/banner';
+import Tarjeta from '../Componentes/tarjeta';
+import Zoom from '../Componentes/zoom';
+import Visualizador from '../Componentes/visualizador';
+import IonicZoom from '../Componentes/IonicZoom';
+
 const Edet = () => {
 
     return(
-        <IonPage>
+      <>
+      {/* <Menu/> */}
+      <IonPage className="home">
 
-<IonHeader>
+        <IonHeader>
           <IonToolbar color={'medium'} >
-            <IonTitle id="iontitle" color={'dark'}>EDET S.A</IonTitle>
+            <IonTitle id="iontitle" color={'dark'}>Home</IonTitle>
             <IonButtons slot="start">
               <IonMenuButton color={'dark'} id="ionbtnmenu" />
             </IonButtons>
           </IonToolbar>
         </IonHeader>
 
-            <IonContent className="ion-padding">
-                <div className='algo'>
-                    <h1>Edet</h1>
-                </div>
-            </IonContent>
-            
-      </IonPage>
+        <IonContent>
+        
+          <Tarjeta/>
+          <Banner/>
+          <Zoom/>
+          {/* <Visualizador/> */}
+          <IonicZoom></IonicZoom>
+        </IonContent>
+    </IonPage>
+    </>
         
     )
 }

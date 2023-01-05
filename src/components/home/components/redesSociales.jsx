@@ -10,15 +10,15 @@ const RedesSociales = () => {
               <div className="listonFooter">
 
                 <a className="redes" href="https://es-la.facebook.com/" >
-                    <IonImg className="imgRedes" src="assets/images/insta.png" alt="Instagram del Ministerio de obras y Servicios Publicos" />
+                    <IonImg className="imgRedes" src="assets/images/instagram.png" alt="Instagram del Ministerio de obras y Servicios Publicos" />
                 </a>
 
                 <a className="redes" href="https://es-la.facebook.com/" >
-                    <IonImg className="imgRedes" src="assets/images/face.png" alt="Facebook del Ministerio de obras y Servicios Publicos" />
+                    <IonImg className="imgRedes" src="assets/images/facebook.png" alt="Facebook del Ministerio de obras y Servicios Publicos" />
                 </a>
 
                 <a className="redes" href="https://es-la.facebook.com/" >
-                    <IonImg className="imgRedes" src="assets/images/wp.png" alt="Whatsapp del Ministerio de obras y Servicios Publicos" />
+                    <IonImg className="imgRedes" src="assets/images/whatsapp.png" alt="Whatsapp del Ministerio de obras y Servicios Publicos" />
                 </a>
                   
               </div>

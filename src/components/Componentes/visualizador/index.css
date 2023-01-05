@@ -1,0 +1,6 @@
+.contenedorImagenes{
+
+    display: flex;
+    flex-direction: row;
+
+}
