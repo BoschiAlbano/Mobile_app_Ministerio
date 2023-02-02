@@ -3,7 +3,7 @@ import {IonCard, IonCardContent, IonImg} from '@ionic/react';
 
 //import { logoFacebook, logoInstagram, logoWhatsapp } from "ionicons/icons";
 
-const RedesSociales = () => {
+const RedesSociales = ({}) => {
     return (
         <IonCard>
             <IonCardContent className="CardPading">

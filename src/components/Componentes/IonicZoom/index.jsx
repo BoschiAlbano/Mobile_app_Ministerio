@@ -6,7 +6,7 @@ const IonicZoom = () => {
         <div>
             <IonCard color={'medium'}>
                 <IonCardContent className="CardPading">
-                    <h2 id="titulo">Costo de Energia</h2>
+                    <h2 id="titulo">IonicZoom</h2>
                 </IonCardContent>
             </IonCard>
 
@@ -16,7 +16,7 @@ const IonicZoom = () => {
                 <IonSlides options={{ zoom: true,  }}>
                 <IonSlide>
                     <div className='swiper-zoom-container'>
-                        <img src={'/assets/images/edet/factura.jpeg'}></img>
+                        <img src={'/assets/images/edet/factura.jpg'}></img>
                     </div>
                 </IonSlide>
                 </IonSlides>
@@ -26,7 +26,7 @@ const IonicZoom = () => {
                     <IonCardSubtitle id='ioncardsubtitle'>{'Conocé por qué Tucumán tiene una de las tarifas de energía más competitivas del país'}</IonCardSubtitle>
                 </IonCardHeader>
                 <IonCardContent>
-                    <a href="https://www.edetsa.com/info/pwa/blog/GetAlert/76-variaci%C3%B3n-del-costo-de-la-energ%C3%ADa-el%C3%A9ctrica-en-tucum%C3%A1n">Visitar Sitio</a>
+                    <a href="https://scontent.ftuc4-1.fna.fbcdn.net/v/t1.6435-9/186261438_315067786655255_5530413853663955239_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=ek1oq7Ui0egAX8RY9li&_nc_ht=scontent.ftuc4-1.fna&oh=00_AfBGXpSDjVtqlfRu2S_TrcsKu7RgHafhEdlDCPpLHdI4HA&oe=640258AF">Visitar Sitio</a>
                 </IonCardContent>
             </IonCard>
 
