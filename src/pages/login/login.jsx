@@ -14,23 +14,23 @@ const Login = () => {
     const [present, dismiss] = useIonLoading()
     const [verPass, setverPass] = useState(false)
 
-    useEffect(() => {
+    // useEffect(() => {
 
-        // Obtenemos el token y los datos de LocalStorage
-        const token = localStorage.getItem('token')
-        const data = localStorage.getItem('usuario')
-        console.log(token)
-        console.log(JSON.parse(data))
+    //     // Obtenemos el token y los datos de LocalStorage
+    //     const token = localStorage.getItem('token')
+    //     const data = localStorage.getItem('usuario')
+    //     console.log(token)
+    //     console.log(JSON.parse(data))
 
-        // consultamos en la db si los datos son correctos
+    //     // consultamos en la db si los datos son correctos
 
-        // redireccionamos a home
+    //     // redireccionamos a home
         
-        if (token && data) {
-            navigation.push('/app', 'forward', 'replace')
-        }
+    //     if (token && data) {
+    //         navigation.push('/app', 'forward', 'replace')
+    //     }
 
-    }, []);
+    // }, []);
 
     const onSubmit = async (event) => {
         // evento

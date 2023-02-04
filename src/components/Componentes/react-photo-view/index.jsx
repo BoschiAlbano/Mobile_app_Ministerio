@@ -2,6 +2,8 @@ import "./index.css"
 import { PhotoSlider } from 'react-photo-view'
 import { IonCardContent, IonCardHeader, IonImg, IonCardTitle, IonCardSubtitle, IonCard } from '@ionic/react';
 import { useState } from "react";
+import { useIonViewWillLeave } from '@ionic/react';
+
 
 // https://www.npmjs.com/package/react-photo-view
 
@@ -9,6 +11,10 @@ const Tarjeta_Imagenes = ({datos}) => {
 
   const [visible, setVisible] = useState(false);
 
+  useIonViewWillLeave(() => {
+    setVisible(false)
+  });
+  
   return (<>
 
     <IonCard color={'medium'}>
