@@ -35,7 +35,7 @@ const Edet = () => {
 
         <IonHeader>
           <IonToolbar color={'medium'} >
-            <IonTitle id="iontitle" color={'dark'}>Home</IonTitle>
+            <IonTitle id="iontitle" color={'dark'}>EDET</IonTitle>
             <IonButtons slot="start">
               <IonMenuButton color={'dark'} id="ionbtnmenu" />
             </IonButtons>

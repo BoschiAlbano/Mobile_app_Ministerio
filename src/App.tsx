@@ -1,6 +1,6 @@
 import { IonApp, IonRouterOutlet, setupIonicReact } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import { Redirect, Route } from 'react-router-dom';
+import { Redirect, Route, useLocation } from 'react-router-dom';
 
 import Login from './pages/login/login';
 import Register from './pages/register/register';
@@ -25,11 +25,10 @@ import '@ionic/react/css/display.css';
 import './theme/variables.css';
 import Menu from './components/Menu';
 
-
-
 setupIonicReact();
 
 const App: React.FC = () => {
+
   return (
     <IonApp>
       <IonReactRouter>

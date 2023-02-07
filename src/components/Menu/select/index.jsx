@@ -4,7 +4,6 @@ import {
     IonLabel,
     IonMenuToggle,
   } from '@ionic/react';
-import { homeOutline, home, bulbOutline, bulb } from 'ionicons/icons';
 import { useLocation } from 'react-router-dom';
 
 const Select_Items = [

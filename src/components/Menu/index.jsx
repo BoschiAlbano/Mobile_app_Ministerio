@@ -22,6 +22,9 @@ import Gasnor from '../Gasnor';
 import Edet from '../Edet';
 import Info from '../Info';
 
+import { App as back } from '@capacitor/app'
+import { useEffect } from 'react';
+
 const MenuAdmin = [
   {
     title: 'Home',
@@ -37,11 +40,50 @@ const MenuAdmin = [
   }
 ];
 
+
 const Menu = () => {
 
   const location = useLocation()
   const navigation = useIonRouter()
   const [alert] = useIonAlert()
+
+
+  useEffect(() => {
+    // Elimina el boton Atras por completo
+    document.addEventListener('ionBackButton', (ev) => {
+      ev.preventDefault();
+
+      ev.detail.register(99, () => {
+        console.log('Handler was called!');
+      });
+
+      ev.detail.register(-1, () => {
+        back.exitApp()
+      });
+
+    });
+    // back.addListener('backButton', ({canGoBack}) => {
+    //   if(!canGoBack){
+    //     alert({
+    //       header: 'Salir de la App',
+    //       message: 'Esta Seguro que quieres salir de la app',
+    //       buttons: [{
+    //         text: 'Cancelar',
+    //         role: 'cancel',
+    //       },
+    //       {
+    //         text: 'Aceptar',
+    //         role: 'confirm',
+    //         handler: () => {
+    //           localStorage.removeItem('token')
+    //           localStorage.removeItem('usuario')
+    //           navigation.push('/login', 'forward', 'replace')
+    //         },
+    //       },],
+    //     })
+    //   }
+    // })
+  }, [])
 
   const salir = () => {
 
