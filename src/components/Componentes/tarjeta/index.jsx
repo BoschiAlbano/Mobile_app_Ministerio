@@ -1,15 +1,15 @@
 import React from 'react';
 import './index.css';
 
-const Tarjeta = () => {
+const Tarjeta = ({imagen, url, pagina}) => {
     return (
         <div>
             <div className="box">
                 <div className="content">
-                    <img src="/assets/images/edet/edet.png"/>
+                    <img src={imagen}/>
                     <div className="text1">Conoce más en.</div>
-                    <a href='https://www.edetsa.com/info/pwa/'>
-                        <div className="text2">https://www.edetsa.com</div>
+                    <a href={url}>
+                        <div className="text2">{pagina}</div>
                     </a>
                 </div>
             </div>

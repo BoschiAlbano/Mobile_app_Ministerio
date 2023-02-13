@@ -8,13 +8,13 @@ import { useLocation } from 'react-router-dom';
 
 const Select_Items = [
     {
-        title: 'Edet',
+        title: 'Edet S.A.',
         url: '/app/Edet',
         iosIcon: '/assets/images/edet.svg',
         mdIcon: '/assets/images/edet.svg'
     },
     {
-        title: 'Gasnor',
+        title: 'Gasnor S.A.',
         url: '/app/Gasnor',
         iosIcon: '/assets/images/gas.svg',
         mdIcon: '/assets/images/gas.svg'

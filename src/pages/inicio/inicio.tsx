@@ -9,7 +9,7 @@ const Inicio: React.FC = () => {
     useEffect(() => {
         setTimeout(function(){
             navigation.push('/login', 'forward', 'replace')
-        }, 4000);
+        }, 2000);
     },[navigation])
 
     return(

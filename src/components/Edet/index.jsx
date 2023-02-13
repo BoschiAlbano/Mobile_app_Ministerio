@@ -35,7 +35,7 @@ const Edet = () => {
 
         <IonHeader>
           <IonToolbar color={'medium'} >
-            <IonTitle id="iontitle" color={'dark'}>EDET</IonTitle>
+            <IonTitle id="iontitle" color={'dark'}>EDET S.A</IonTitle>
             <IonButtons slot="start">
               <IonMenuButton color={'dark'} id="ionbtnmenu" />
             </IonButtons>
@@ -43,7 +43,7 @@ const Edet = () => {
         </IonHeader>
 
         <IonContent>
-          <Tarjeta />
+          <Tarjeta imagen={"/assets/images/edet/edet.png"} url={"https://www.edetsa.com/info/pwa/"} pagina={"https://www.edetsa.com"}/>
           <Tarjeta_Imagenes datos={LeerFactura}/>
           <Tarjeta_Imagenes datos={CostoEnergia}/>
           <RedesSociales/>
