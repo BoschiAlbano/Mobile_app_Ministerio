@@ -23,8 +23,8 @@ const Select_Items = [
     {
         title: 'Sat',
         url: '/app/Sat',
-        iosIcon: '/assets/images/sat.svg',
-        mdIcon: '/assets/images/sat.svg'
+        iosIcon: '/assets/images/Sat.svg',
+        mdIcon: '/assets/images/Sat.svg'
     }
 ];
 

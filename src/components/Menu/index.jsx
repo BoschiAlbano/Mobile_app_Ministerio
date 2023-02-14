@@ -25,6 +25,7 @@ import Info from '../Info';
 import { App as back } from '@capacitor/app'
 import { useEffect } from 'react';
 
+
 const MenuAdmin = [
   {
     title: 'Home',
@@ -117,7 +118,7 @@ const Menu = () => {
             <div className='header-content'>
               <img className='header-logo' src='assets/images/Logo.png'></img>
             </div>
-
+            
             {/* Botones Select */}
             <Select />
 
@@ -145,6 +146,8 @@ const Menu = () => {
 
           </IonContent>
 
+
+          
           {/* Btn Salir */}
           <IonMenuToggle autoHide={false}>
             <IonItem id='Botones' lines="none" onClick={() => salir()}>

@@ -5,6 +5,8 @@ import "./login.css"
 import Layout from "../../components/layout/layout";
 import { Link } from "react-router-dom";
 
+import { useLocalStorage } from "../../hook/localStorage";
+
 const Login = () => {
 
     const navigation = useIonRouter()
@@ -13,6 +15,9 @@ const Login = () => {
     const [alert] = useIonAlert();
     const [present, dismiss] = useIonLoading()
     const [verPass, setverPass] = useState(false)
+
+
+    const [store, setValue] = useLocalStorage('Datos', [])
 
     // useEffect(() => {
 
@@ -72,8 +77,9 @@ const Login = () => {
                 } else {
                     try {
                         // almacenar token
-                        localStorage.setItem('token', response.token)
-                        localStorage.setItem('usuario', JSON.stringify(response.datos))
+                        setValue({Token: response.token, Usuario: response.datos})
+                        // localStorage.setItem('token', response.token)
+                        // localStorage.setItem('usuario', JSON.stringify(response.datos))
                         console.log(response)
                         // navegar a la pagina home
                         navigation.push('/app', 'forward', 'replace')
