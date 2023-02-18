@@ -1,3 +1,6 @@
+#texto1{
+    font-size:1.5rem;
+}
 
 .box{
     width:100%;
@@ -34,13 +37,14 @@
     opacity:1;    
   
 }
+
 .box .content:hover .text2{
     left:10%;
     opacity:1;
 }
 .box .content .text1{
     color:#fff;
-    font-size:30px;
+    font-size:2rem;
     font-family: 'Oswald', cursive;
     position:absolute;
     left:100%;
@@ -59,9 +63,10 @@
      -o-transition-timing-function: cubic-bezier(0.000, 0.440, 0.000, 0.795); 
         transition-timing-function: cubic-bezier(0.000, 0.440, 0.000, 0.795);    
 }
+
 .box .content .text2{
     color:#fff;
-    font-size:20px;
+    font-size:1rem;
     font-family: 'Oswald', cursive;
     position:absolute;
     left:100%;

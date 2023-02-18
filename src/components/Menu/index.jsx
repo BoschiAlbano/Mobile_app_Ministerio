@@ -14,14 +14,14 @@ import {
 import Home from '../home/index'
 import Kit from '../kitElectrico/index'
 import { Redirect, Route, useLocation } from 'react-router-dom';
-import { homeOutline, home, bulbOutline, bulb, exit, exitOutline } from 'ionicons/icons';
+import { homeOutline, home, bulbOutline, bulb, callOutline, call } from 'ionicons/icons';
 import './index.css';
 import Select from './select';
 import Sat from '../Sat';
 import Gasnor from '../Gasnor';
 import Edet from '../Edet';
 import Info from '../Info';
-
+import Contactanos from '../Contactanos'
 import { App as back } from '@capacitor/app'
 import { useEffect } from 'react';
 
@@ -38,6 +38,12 @@ const MenuAdmin = [
     url: '/app/Kit',
     iosIcon: bulbOutline,
     mdIcon: bulb
+  },
+  {
+    title: 'Contactanos',
+    url: '/app/Contactanos',
+    iosIcon: callOutline,
+    mdIcon: call
   }
 ];
 
@@ -63,27 +69,7 @@ const Menu = () => {
       });
 
     });
-    // back.addListener('backButton', ({canGoBack}) => {
-    //   if(!canGoBack){
-    //     alert({
-    //       header: 'Salir de la App',
-    //       message: 'Esta Seguro que quieres salir de la app',
-    //       buttons: [{
-    //         text: 'Cancelar',
-    //         role: 'cancel',
-    //       },
-    //       {
-    //         text: 'Aceptar',
-    //         role: 'confirm',
-    //         handler: () => {
-    //           localStorage.removeItem('token')
-    //           localStorage.removeItem('usuario')
-    //           navigation.push('/login', 'forward', 'replace')
-    //         },
-    //       },],
-    //     })
-    //   }
-    // })
+    
   }, [])
 
   const salir = () => {
@@ -99,8 +85,7 @@ const Menu = () => {
         text: 'Aceptar',
         role: 'confirm',
         handler: () => {
-          localStorage.removeItem('token')
-          localStorage.removeItem('usuario')
+          localStorage.removeItem('Datos')
           navigation.push('/login', 'forward', 'replace')
         },
       },],
@@ -167,6 +152,7 @@ const Menu = () => {
           <Route exact path="/app/Gasnor" component={Gasnor}></Route>
           <Route exact path="/app/Sat" component={Sat}></Route>
           <Route exact path="/app/Info" component={Info}></Route>
+          <Route exact path="/app/Contactanos" component={Contactanos}></Route>
 
 
           <Route exact path="/app">

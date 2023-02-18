@@ -19,7 +19,19 @@ h4{
     max-width: 90%;
 }
 
+.input_group_true{
+    display: flex;
+    border: 2px solid rgba(12, 231, 231, 0.692);
+    border-radius: 20px;
+    width: 300px;
+    margin-bottom: 10px;
+    padding: 3px;
+    pointer-events: none;
+}
 
+.mensaje{
+    color: rgba(231, 38, 12, 0.781);
+}
 .input_group{
     display: flex;
     border: 2px solid rgba(197, 197, 197, 0.692);
